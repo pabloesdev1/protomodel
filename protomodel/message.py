@@ -24,5 +24,7 @@ class Message:
     def get_type_string(self, type_hint):
         if hasattr(type_hint, "__origin__") and type_hint.__origin__ in [List, list]:
             return f"{get_types(type_hint.__name__)} {type_hint.__args__[0].message.__name__}"
-        else:
+        try:
             return get_types(type_hint.__name__)
+        except:
+            return type_hint.message.__name__ if hasattr(type_hint, "message") else type_hint.__name__
