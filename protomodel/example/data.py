@@ -4,9 +4,10 @@ from protomodel import message, service, rpc
 class Product:
     id: int
     name: str
-    brand_id: int
     price: float
+    brand_id: int
     category_id: int
+    enabled: bool
 
 
 @message

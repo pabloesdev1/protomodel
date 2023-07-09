@@ -2,7 +2,10 @@ def get_types(value):
     types = {
         "int": "int32",
         "str": "string",
-        "list": "repetead",
-        "List": 'repetead'
+        "float": "double",
+        "bool": "bool",
+        "bytes": "bytes",
+        "list": "repeated",
+        "List": 'repeated',
     }
     return types[value]
