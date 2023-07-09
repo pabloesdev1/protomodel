@@ -1,30 +1,32 @@
-from typing import Any, List, Type
+from typing import Any, Dict, List, TextIO, Type
 from protomodel.types import get_types
 
 
 class Message:
 
+    """A decorator class to define a proto buffer model"""
 
-    def __init__(self, message: Type[Any]):
-        self.message = message
+    def __init__(self, message_model: Type[Any]):
+        self.message_model = message_model
 
-    def __call__(self, *args: Any, **kwds: Any) -> Any:
-        return self.message.__annotations__
+    def __call__(self, *args: Any, **kwds: Dict[str, Any]) -> Dict[str, Any]:
+        return self.message_model.__annotations__
 
-    def add_messages(self, file) -> None:
-        file.write(f"message {self.message.__name__} {{\n")
+    def add_field(self, file: TextIO) -> None:
+        file.write(f"{self.__class__.__name__.lower()} {self.message_model.__name__} {{\n")
+        annotations = self.message_model.__annotations__
 
-        for index, field in enumerate(self.message.__annotations__, 1):
-            original_type = self.message.__annotations__[field]
-            type_field = self.get_type_string(original_type)
-            file.write(f"\t{type_field} {field} = {index};\n")
+        for index, field in enumerate(annotations, 1):
+            annotation: Type[Any] = annotations[field]
+            field_type: str = self.__get_type_string(annotation)
+            file.write(f"\t{field_type} {field} = {index};\n")
 
         file.write(f"}}\n\n")
 
-    def get_type_string(self, type_hint):
-        if hasattr(type_hint, "__origin__") and type_hint.__origin__ in [List, list]:
-            return f"{get_types(type_hint.__name__)} {type_hint.__args__[0].message.__name__}"
+    def __get_type_string(self, annotation: Type[Any]) -> str:
+        if hasattr(annotation, "__origin__") and annotation.__origin__ in [List, list]:
+            return f"{get_types(annotation.__name__)} {annotation.__args__[0].message_model.__name__}"
         try:
-            return get_types(type_hint.__name__)
+            return get_types(annotation.__name__)
         except:
-            return type_hint.message.__name__ if hasattr(type_hint, "message") else type_hint.__name__
+            return annotation.message_model.__name__ if hasattr(annotation, "message_model") else annotation.__name__
