@@ -22,7 +22,7 @@ class Greeter:
 
     @rpc
     def say_hello(hello_request: HelloRequest) -> HelloReply:
-        ...
+        pass
 
 ```
 
@@ -50,5 +50,35 @@ message HelloReply {
 
 service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+```
+
+## Adding another types
+```python
+@message
+class Item:
+    id: int
+    name: str
+    description: str
+    price: float
+    enabled: bool
+
+@message
+class ItemsList:
+    items: list[Item]
+```
+
+### Result:
+```proto
+message Item {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  bool enabled = 5;
+}
+
+message ItemsList {
+  repeated Item items = 1;
 }
 ```
