@@ -54,6 +54,15 @@ service Greeter {
 ```
 
 ## Adding another types
+
+<table>
+<!-- <tr>
+<th>example.py</th>
+<th>example.proto</th>
+</tr> -->
+<tr>
+<td>
+  
 ```python
 @message
 class Item:
@@ -67,8 +76,10 @@ class Item:
 class ItemsList:
     items: list[Item]
 ```
+  
+</td>
+<td>
 
-### Result:
 ```proto
 message Item {
   int32 id = 1;
