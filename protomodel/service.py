@@ -33,8 +33,8 @@ class Service:
                     return_type = field_type
                 else:
                     params_list.append(field_type)
-
-            file.write(f"  {rpc_method.__class__.__name__.lower()} {rpc_method_name} ({params_list[0]}) returns ({return_type}) {{}}\n")
+            params_list = '' if len(params_list) == 0 else params_list[0]
+            file.write(f"  {rpc_method.__class__.__name__.lower()} {rpc_method_name} ({params_list}) returns ({return_type}) {{}}\n")
         file.write(f"}}\n\n")
 
 

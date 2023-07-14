@@ -1,10 +1,20 @@
 
 
 # Protomodel
-Python Library to generate proto buffer code from python using type hints
+Python Library to generate proto buffer code from python using type annotations
 
+## Installation
+### Create a virtual enviroment (Optional)
+```bash
+python -m venv venv
+source venv/bin/activate # venv/Scripts/activate on Windows
+```
+### Install package (require python ^3.10 version)
+```bash
+pip install protomodel
+```
 ## Example
-Generate a file hello.py and add the following code:
+Create a python file and add the following code:
 ```python
 from protomodel import message, service, rpc
 

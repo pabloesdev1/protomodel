@@ -14,4 +14,4 @@ class Greeter:
 
     @rpc
     def say_hello(hello_request: HelloRequest) -> HelloReply:
-        ...
+        pass
