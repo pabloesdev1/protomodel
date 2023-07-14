@@ -38,7 +38,7 @@ class Greeter:
 
 ## Generate file
 
-Run the following command to generate a proto buffer file
+Run the following command to generate a proto buffer file:
 ```bash
 python -m protomodel generate --python_file=hello.py --proto_name=hello.proto
 ```
@@ -47,8 +47,6 @@ python -m protomodel generate --python_file=hello.py --proto_name=hello.proto
 And then you will get the following result:
 ```proto
 syntax = "proto3";
-
-package app.proto;
 
 message HelloRequest {
   string name = 1;
@@ -61,6 +59,19 @@ message HelloReply {
 service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
+```
+
+Add a package name:
+```bash
+python -m protomodel generate --python_file=hello.py --proto_name=hello.proto --package_name=my_package_name
+```
+
+```proto
+syntax = "proto3";
+
+package my_package_name;
+
+...
 ```
 
 ## Adding another types
