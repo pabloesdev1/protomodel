@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "protomodel"
-version = "0.0.8"
-description = "Python Library to generate protobuffers code from python using type hints"
+version = "0.0.9"
+description = "Python Library to generate proto buffer code from python using type hints"
 authors = ["Pablo España <pabloespanab@outlook.com>"]
 readme = "README.md"
 packages = [{include = "protomodel"}]
