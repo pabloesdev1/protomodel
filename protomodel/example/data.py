@@ -21,3 +21,10 @@ class GetProductResponse:
 @message
 class GetProductsResponse:
     products: list[Product]
+
+@service
+class ProductService:
+
+    @rpc
+    def get_product(get_product_request: GetProductRequest, other_param: int) -> GetProductResponse: 
+        ...

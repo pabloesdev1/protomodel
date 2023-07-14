@@ -19,7 +19,7 @@ class Message:
         for index, field in enumerate(annotations, 1):
             annotation: Type[Any] = annotations[field]
             field_type: str = self.__get_type_string(annotation)
-            file.write(f"\t{field_type} {field} = {index};\n")
+            file.write(f"  {field_type} {field} = {index};\n")
 
         file.write(f"}}\n\n")
 
