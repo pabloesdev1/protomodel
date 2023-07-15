@@ -1,5 +1,6 @@
 from protomodel import message, service, rpc
 
+
 @message
 class Product:
     id: int
@@ -14,17 +15,20 @@ class Product:
 class GetProductRequest:
     product_id: int
 
+
 @message
 class GetProductResponse:
     product: Product
+
 
 @message
 class GetProductsResponse:
     products: list[Product]
 
+
 @service
 class ProductService:
 
     @rpc
-    def get_product(get_product_request: GetProductRequest, other_param: int) -> GetProductResponse: 
+    def get_product(get_product_request: GetProductRequest, other_param: int) -> GetProductResponse:
         ...

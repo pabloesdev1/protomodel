@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "protomodel"
-version = "0.0.12"
+version = "0.0.13"
 description = "Python Library to generate proto buffer code from python using type annotations"
 authors = ["Pablo España <pabloespanab@outlook.com>"]
 readme = "README.md"
@@ -9,6 +9,7 @@ packages = [{include = "protomodel"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 click = "^8.1.5"
+flake8 = "^6.0.0"
 
 
 [build-system]

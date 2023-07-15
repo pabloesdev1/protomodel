@@ -63,7 +63,8 @@ service Greeter {
 
 Add a package name:
 ```bash
-python -m protomodel generate --python_file=hello.py --proto_name=hello.proto --package_name=my_package_name
+python -m protomodel generate --python_file=hello.py \
+--proto_name=hello.proto --package_name=my_package_name
 ```
 
 ```proto

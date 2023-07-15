@@ -1,0 +1,15 @@
+[flake8]
+extend-ignore = 
+max-line-length = 120
+exclude = 
+    .git
+    old
+    migrations
+    __pycache__
+    manage.py
+    venv
+    .env
+    .env.example
+    .venv
+    build
+    dist

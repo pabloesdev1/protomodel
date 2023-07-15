@@ -1,5 +1,6 @@
-from typing import Any, Dict, List, TextIO, Type
-from protomodel.types import get_types
+from typing import Any, Dict, Type
+
+
 class RPC:
 
     """A decorator class to define a rpc model"""

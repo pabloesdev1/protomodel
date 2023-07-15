@@ -5,9 +5,11 @@ from protomodel import message, service, rpc
 class HelloRequest:
     name: str
 
+
 @message
 class HelloReply:
     message: str
+
 
 @service
 class Greeter:
